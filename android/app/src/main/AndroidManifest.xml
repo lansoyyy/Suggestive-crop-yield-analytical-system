@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.crop_analytical_system">
    <application
-        android:label="crop_analytical_system"
+        android:label="Analytical System"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
