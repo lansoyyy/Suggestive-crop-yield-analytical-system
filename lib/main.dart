@@ -1,4 +1,4 @@
-import 'package:crop_analytical_system/screens/home_screen.dart';
+import 'package:crop_analytical_system/screens/auth/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,8 +10,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomeScreen(),
+    return MaterialApp(
+      home: LoginScreen(),
     );
   }
 }

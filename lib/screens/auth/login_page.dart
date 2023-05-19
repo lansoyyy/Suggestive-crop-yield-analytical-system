@@ -1,4 +1,5 @@
 import 'package:crop_analytical_system/screens/auth/signup_screen.dart';
+import 'package:crop_analytical_system/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get_storage/get_storage.dart';
@@ -29,11 +30,11 @@ class LoginScreen extends StatelessWidget {
               fit: BoxFit.cover,
             ),
             TextBold(
-                text: 'Vegetables',
+                text: 'Crop ', fontSize: 42, color: const Color(0xff4E7B02)),
+            TextBold(
+                text: 'Analytical System',
                 fontSize: 42,
                 color: const Color(0xff4E7B02)),
-            TextBold(
-                text: 'Scanner', fontSize: 42, color: const Color(0xff4E7B02)),
             const SizedBox(
               height: 20,
             ),
@@ -140,6 +141,19 @@ class LoginScreen extends StatelessWidget {
                     child: TextBold(
                         text: 'Create now', fontSize: 14, color: Colors.black))
               ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            TextButton(
+                onPressed: (() {
+                  // Navigator.of(context).push(MaterialPageRoute(
+                  //     builder: (context) => RegisterScreen()));
+                }),
+                child: TextBold(
+                    text: 'Signup as Admin', fontSize: 14, color: primary)),
+            const SizedBox(
+              height: 30,
             ),
           ],
         ),

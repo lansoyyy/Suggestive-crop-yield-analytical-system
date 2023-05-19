@@ -46,11 +46,11 @@ class RegisterScreen extends StatelessWidget {
               ],
             ),
             TextBold(
-                text: 'Vegetables',
+                text: 'Crop ', fontSize: 42, color: const Color(0xff4E7B02)),
+            TextBold(
+                text: 'Analytical System',
                 fontSize: 42,
                 color: const Color(0xff4E7B02)),
-            TextBold(
-                text: 'Scanner', fontSize: 42, color: const Color(0xff4E7B02)),
             const SizedBox(
               height: 20,
             ),
