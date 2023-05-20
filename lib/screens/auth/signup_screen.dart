@@ -13,6 +13,9 @@ class RegisterScreen extends StatelessWidget {
 
   late String password = '';
   late String confirmPassword = '';
+  late String firstName = '';
+  late String lastName = '';
+  late String address = '';
 
   RegisterScreen({super.key});
   @override
@@ -80,7 +83,7 @@ class RegisterScreen extends StatelessWidget {
                     decoration: const InputDecoration(
                         prefixText: '',
                         border: InputBorder.none,
-                        hintText: '    Email',
+                        hintText: '    Username',
                         hintStyle: TextStyle(
                           color: Colors.grey,
                           fontFamily: 'QRegular',
@@ -146,6 +149,87 @@ class RegisterScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(
+              height: 5,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 30, right: 30),
+              child: Card(
+                elevation: 3,
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white),
+                  child: TextFormField(
+                    onChanged: ((value) {
+                      firstName = value;
+                    }),
+                    decoration: const InputDecoration(
+                        prefixText: '',
+                        border: InputBorder.none,
+                        hintText: '    Firstname',
+                        hintStyle: TextStyle(
+                          color: Colors.grey,
+                          fontFamily: 'QRegular',
+                        )),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 5,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 30, right: 30),
+              child: Card(
+                elevation: 3,
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white),
+                  child: TextFormField(
+                    onChanged: ((value) {
+                      lastName = value;
+                    }),
+                    decoration: const InputDecoration(
+                        prefixText: '',
+                        border: InputBorder.none,
+                        hintText: '    Lastname',
+                        hintStyle: TextStyle(
+                          color: Colors.grey,
+                          fontFamily: 'QRegular',
+                        )),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 5,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 30, right: 30),
+              child: Card(
+                elevation: 3,
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white),
+                  child: TextFormField(
+                    onChanged: ((value) {
+                      address = value;
+                    }),
+                    decoration: const InputDecoration(
+                        prefixText: '',
+                        border: InputBorder.none,
+                        hintText: '    Address',
+                        hintStyle: TextStyle(
+                          color: Colors.grey,
+                          fontFamily: 'QRegular',
+                        )),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
               height: 30,
             ),
             Padding(
@@ -156,22 +240,19 @@ class RegisterScreen extends StatelessWidget {
                   width: 150,
                   child: ButtonWidget(
                       onPressed: (() {
-                        if (email.contains('@')) {
-                          if (confirmPassword != password) {
-                            Fluttertoast.showToast(
-                                msg: 'Password do not match!');
-                          } else {
-                            Fluttertoast.showToast(
-                                msg: 'Account created succesfully!');
-                            box.write('email', email);
-                            box.write('password', password);
-                            Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(
-                                    builder: (context) => LoginScreen()));
-                          }
+                        if (confirmPassword != password) {
+                          Fluttertoast.showToast(msg: 'Password do not match!');
                         } else {
                           Fluttertoast.showToast(
-                              msg: 'Please provide a valid email address!');
+                              msg: 'Account created succesfully!');
+                          box.write('email', email);
+                          box.write('password', password);
+                          box.write('firstName', firstName);
+                          box.write('lastName', lastName);
+                          box.write('address', address);
+                          Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                  builder: (context) => LoginScreen()));
                         }
                       }),
                       label: 'Signup'),

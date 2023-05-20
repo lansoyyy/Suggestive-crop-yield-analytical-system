@@ -64,7 +64,7 @@ class LoginScreen extends StatelessWidget {
                     decoration: const InputDecoration(
                         prefixText: '',
                         border: InputBorder.none,
-                        hintText: '    Email',
+                        hintText: '    Username',
                         hintStyle: TextStyle(
                           color: Colors.grey,
                           fontFamily: 'QRegular',
