@@ -1,3 +1,4 @@
+import 'package:crop_analytical_system/service/add_user.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get_storage/get_storage.dart';
@@ -250,6 +251,7 @@ class RegisterScreen extends StatelessWidget {
                           box.write('firstName', firstName);
                           box.write('lastName', lastName);
                           box.write('address', address);
+                          addUser('$firstName $lastName', address, email);
                           Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
                                   builder: (context) => LoginScreen()));
