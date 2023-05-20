@@ -13,6 +13,7 @@ class LoginScreen extends StatelessWidget {
   late String email = '';
 
   late String password = '';
+  late String adminPassword = '';
 
   LoginScreen({super.key});
   @override
@@ -149,6 +150,56 @@ class LoginScreen extends StatelessWidget {
                 onPressed: (() {
                   // Navigator.of(context).push(MaterialPageRoute(
                   //     builder: (context) => RegisterScreen()));
+                  showDialog(
+                      context: context,
+                      builder: ((context) {
+                        return AlertDialog(
+                          title: TextBold(
+                              text: 'Enter admin password',
+                              fontSize: 14,
+                              color: Colors.black),
+                          content: SizedBox(
+                            width: 100,
+                            height: 40,
+                            child: TextFormField(
+                              obscureText: true,
+                              decoration: const InputDecoration(
+                                hintText: 'Admin password',
+                                suffixIcon: Icon(Icons.lock),
+                              ),
+                              onChanged: ((value) {
+                                adminPassword = value;
+                              }),
+                            ),
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: (() {
+                                if (adminPassword != 'admin123') {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: TextRegular(
+                                          text: 'Invalid Password',
+                                          fontSize: 14,
+                                          color: Colors.white),
+                                    ),
+                                  );
+                                  Navigator.pop(context);
+                                } else {
+                                  // Navigator.of(context).pushReplacement(
+                                  //     MaterialPageRoute(
+                                  //         builder: (context) =>
+                                  //             const AdminHome()));
+                                }
+                              }),
+                              child: TextBold(
+                                  text: 'Continue',
+                                  fontSize: 18,
+                                  color: Colors.black),
+                            ),
+                          ],
+                        );
+                      }));
                 }),
                 child: TextBold(
                     text: 'Signup as Admin', fontSize: 14, color: primary)),
