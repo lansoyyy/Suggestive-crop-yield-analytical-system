@@ -1,3 +1,4 @@
+import 'package:crop_analytical_system/screens/admin_home.dart';
 import 'package:crop_analytical_system/screens/auth/signup_screen.dart';
 import 'package:crop_analytical_system/utils/colors.dart';
 import 'package:flutter/material.dart';
@@ -186,10 +187,10 @@ class LoginScreen extends StatelessWidget {
                                   );
                                   Navigator.pop(context);
                                 } else {
-                                  // Navigator.of(context).pushReplacement(
-                                  //     MaterialPageRoute(
-                                  //         builder: (context) =>
-                                  //             const AdminHome()));
+                                  Navigator.of(context).pushReplacement(
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const AdminHome()));
                                 }
                               }),
                               child: TextBold(
