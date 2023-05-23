@@ -27,17 +27,18 @@ class _WeatherBottomSheetState extends State<WeatherBottomSheet> {
   @override
   void initState() {
     super.initState();
-    cropSuggestion();
   }
 
   late DateTime date = DateTime.now();
   late DateTime date2 = DateTime.now();
-  int month = 0;
+  late int month;
   bool completed = false;
 
   String cropData = '';
 
   void cropSuggestion() {
+    bool cropFound = false; // Flag to check if a matching crop is found
+
     for (int i = 0; i < dataList.length; i++) {
       if (widget.location.toUpperCase() == dataList[i]['location']) {
         for (int j = 0; j < dataList[i]['crops'].length; j++) {
@@ -45,13 +46,20 @@ class _WeatherBottomSheetState extends State<WeatherBottomSheet> {
             setState(() {
               cropData = dataList[i]['crops'][j]['name'];
             });
-          } else {
-            setState(() {
-              cropData = 'No available crop for that data';
-            });
+            cropFound = true; // Set the flag to true
+            break; // Exit the inner loop since a matching crop is found
           }
         }
+        if (cropFound) {
+          break; // Exit the outer loop since a matching crop is found
+        }
       }
+    }
+
+    if (!cropFound) {
+      setState(() {
+        cropData = 'No available crop for that month';
+      });
     }
   }
 
@@ -127,6 +135,8 @@ class _WeatherBottomSheetState extends State<WeatherBottomSheet> {
                     date = selectedDate;
                     month = selectedDate.month;
                   });
+
+                  cropSuggestion();
                 }
               },
               child: Container(
