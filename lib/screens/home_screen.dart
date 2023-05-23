@@ -181,14 +181,16 @@ class HomeScreenState extends State<HomeScreen> {
             showModalBottomSheet(
                 context: context,
                 builder: (context) {
-                  return WeatherBottomSheet(
-                    weatherDescription: weatherDescription,
-                    humidity: humidity,
-                    pressure: pressure,
-                    temperatureCelsius: temperatureCelsius,
-                    windSpeed: windSpeed,
-                    location: '$city, $country',
-                  );
+                  return StatefulBuilder(builder: (context, setState) {
+                    return WeatherBottomSheet(
+                      weatherDescription: weatherDescription,
+                      humidity: humidity,
+                      pressure: pressure,
+                      temperatureCelsius: temperatureCelsius,
+                      windSpeed: windSpeed,
+                      location: '$city, $country',
+                    );
+                  });
                 });
           } else {
             print('No location data found for the given coordinates.');
