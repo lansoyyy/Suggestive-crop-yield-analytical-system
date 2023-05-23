@@ -88,6 +88,7 @@ class HomeScreenState extends State<HomeScreen> {
         onTap: (argument) {
           getApiData(argument.latitude, argument.longitude);
         },
+        zoomControlsEnabled: false,
         buildingsEnabled: true,
         myLocationEnabled: true,
         mapType: MapType.normal,
@@ -95,6 +96,11 @@ class HomeScreenState extends State<HomeScreen> {
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: primary,
+        child: const Icon(Icons.search),
+        onPressed: () {},
       ),
     );
   }
