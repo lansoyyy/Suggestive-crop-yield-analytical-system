@@ -1,3 +1,4 @@
+import 'package:crop_analytical_system/data/crop_data.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -23,14 +24,39 @@ class WeatherBottomSheet extends StatefulWidget {
 }
 
 class _WeatherBottomSheetState extends State<WeatherBottomSheet> {
+  @override
+  void initState() {
+    super.initState();
+    cropSuggestion();
+  }
+
   late DateTime date = DateTime.now();
   late DateTime date2 = DateTime.now();
+  int month = 0;
   bool completed = false;
-  String location = '';
+
+  String cropData = '';
+
+  void cropSuggestion() {
+    for (int i = 0; i < dataList.length; i++) {
+      if (widget.location.toUpperCase() == dataList[i]['location']) {
+        for (int j = 0; j < dataList[i]['crops'].length; j++) {
+          if (dataList[i]['crops'][j]['duration'] == month) {
+            setState(() {
+              cropData = dataList[i]['crops'][j]['name'];
+            });
+          } else {
+            setState(() {
+              cropData = 'No available crop for that data';
+            });
+          }
+        }
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    print(date);
-    print(date2);
     return Container(
       padding: const EdgeInsets.all(16.0),
       child: SingleChildScrollView(
@@ -99,6 +125,7 @@ class _WeatherBottomSheetState extends State<WeatherBottomSheet> {
                 if (selectedDate != null) {
                   setState(() {
                     date = selectedDate;
+                    month = selectedDate.month;
                   });
                 }
               },
@@ -168,9 +195,9 @@ class _WeatherBottomSheetState extends State<WeatherBottomSheet> {
             const SizedBox(height: 20.0),
             Visibility(
               visible: completed,
-              child: const Text(
-                'Crop Suggestions: ${'Corn, Watermelon, Eggplant, Okra, Cucumber, Bitter gourd (Ampalaya), Sweet potato (Camote), Tomato, Bell pepper, Chili pepper'}',
-                style: TextStyle(
+              child: Text(
+                'Crop Suggestions: $cropData',
+                style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'QBold'),
