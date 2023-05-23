@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
-
+import 'package:google_api_headers/google_api_headers.dart';
 import 'package:crop_analytical_system/screens/auth/login_page.dart';
 import 'package:crop_analytical_system/utils/colors.dart';
 import 'package:crop_analytical_system/utils/keys.dart';
@@ -11,7 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:http/http.dart' as http;
-
+import 'package:google_maps_webservice/places.dart' as location1;
+import 'package:flutter_google_places/flutter_google_places.dart';
 import '../utils/api_config.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -31,6 +32,8 @@ class HomeScreenState extends State<HomeScreen> {
   );
 
   String location = '';
+
+  GoogleMapController? mapController;
 
   @override
   Widget build(BuildContext context) {
@@ -94,13 +97,45 @@ class HomeScreenState extends State<HomeScreen> {
         mapType: MapType.normal,
         initialCameraPosition: _kGooglePlex,
         onMapCreated: (GoogleMapController controller) {
+          mapController = controller;
           _controller.complete(controller);
         },
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: primary,
         child: const Icon(Icons.search),
-        onPressed: () {},
+        onPressed: () async {
+          location1.Prediction? p = await PlacesAutocomplete.show(
+              mode: Mode.overlay,
+              context: context,
+              apiKey: 'AIzaSyDdXaMN5htLGHo8BkCfefPpuTauwHGXItU',
+              language: 'en',
+              strictbounds: false,
+              types: [""],
+              decoration: InputDecoration(
+                  hintText: 'Search Pick-up Location',
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: const BorderSide(color: Colors.white))),
+              components: [
+                location1.Component(location1.Component.country, "ph")
+              ]);
+
+          location1.GoogleMapsPlaces places = location1.GoogleMapsPlaces(
+              apiKey: 'AIzaSyDdXaMN5htLGHo8BkCfefPpuTauwHGXItU',
+              apiHeaders: await const GoogleApiHeaders().getHeaders());
+
+          location1.PlacesDetailsResponse detail =
+              await places.getDetailsByPlaceId(p!.placeId!);
+
+          mapController!.animateCamera(CameraUpdate.newLatLngZoom(
+              LatLng(detail.result.geometry!.location.lat,
+                  detail.result.geometry!.location.lng),
+              18.0));
+
+          getApiData(detail.result.geometry!.location.lat,
+              detail.result.geometry!.location.lng);
+        },
       ),
     );
   }
