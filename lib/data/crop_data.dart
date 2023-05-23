@@ -1,76 +1,80 @@
-List<Map<String, dynamic>> cropsList = [
+List<Map<String, dynamic>> dataList = [
   {
-    'area': 'Bago',
+    'location': 'BAGO',
     'crops': [
-      {'crop': 'RICE', 'month': 'March to October'},
-      {'crop': 'SUGARCANE', 'month': 'October to May'},
-      {'crop': 'Coconut', 'month': 'May to June'},
-      {'crop': 'MANGO', 'month': 'May to August'},
-      {'crop': 'BANANA', 'month': 'February to March'}
+      {'name': 'RICE', 'duration': 'March to October'},
+      {'name': 'SUGARCANE, RICE', 'duration': 'October to May'},
+      {
+        'name': 'Coconut, Banana, Sugarcane, Rice, Mango',
+        'duration': 'May to June'
+      },
+      {
+        'name': 'Mango, Banana, Sugarcane, Rice, Coconut',
+        'duration': 'May to August'
+      },
+      {
+        'name': 'Banana, Rice, Mango, Sugarcane, Coconut',
+        'duration': 'February to March'
+      }
     ]
   },
   {
-    'area': 'Binalbagan',
+    'location': 'BINALBAGAN',
     'crops': [
-      {'crop': 'Sugar Cane', 'month': 'October to May'},
-      {'crop': 'Corn', 'month': 'April to May'}
+      {'name': 'Sugar Cane, Rice, Corn', 'duration': 'October to May'},
+      {'name': 'Corn, Sugarcane', 'duration': 'April to May'},
+      {'name': 'Rice, Sugarcane', 'duration': 'March to October'}
     ]
   },
   {
-    'area': 'Cadiz',
+    'location': 'CADIZ',
     'crops': [
-      {'crop': 'Sugar Cane', 'month': 'October to May'},
-      {'crop': 'Rice', 'month': 'March to October'},
-      {'crop': 'Corn', 'month': 'April to May'}
+      {'name': 'Sugar Cane, Corn, Rice', 'duration': 'October to May'},
+      {'name': 'Rice, Corn', 'duration': 'March to October'},
+      {'name': 'Rice, Corn', 'duration': 'April to May'}
     ]
   },
   {
-    'area': 'Calatrava',
+    'location': 'CALATRAVA',
     'crops': [
-      {'crop': 'Sugarcane Plantation', 'month': 'October to May'},
-      {'crop': 'Rice Farming', 'month': 'March to October'},
-      {'crop': 'Corn Production', 'month': 'April to May'}
+      {'name': 'Sugarcane Plantation Rice, Corn', 'duration': 'October to May'},
+      {'name': 'Rice Farming, Corn, Sugarcane', 'duration': 'March to October'},
+      {'name': 'Corn Production, Rice', 'duration': 'April to May'}
     ]
   },
   {
-    'area': 'Candoni',
+    'location': 'CANDONI',
     'crops': [
-      {'crop': 'Pineapple', 'month': 'September to December'},
-      {'crop': 'Rice', 'month': 'March to October'}
+      {
+        'name': 'Pineapple, Rice, Sugarcane',
+        'duration': 'September to December'
+      },
+      {'name': 'Rice, Pineapple, Sugarcane', 'duration': 'March to October'},
+      {'name': 'Sugarcane, Pineapple, Corn', 'duration': 'January to May'}
     ]
   },
   {
-    'area': 'Cauyan',
+    'location': 'CAUYAN',
     'crops': [
-      {'crop': 'Rice', 'month': 'March to October'},
-      {'crop': 'Corn', 'month': 'April to May'},
-      {'crop': 'Coconut', 'month': 'May to June'}
+      {'name': 'Rice, Corn, Coconut', 'duration': 'March to October'},
+      {'name': 'Corn, Rice, Coconut', 'duration': 'April to May'},
+      {'name': 'Coconut, Rice, Corn', 'duration': 'May to June'}
     ]
   },
   {
-    'area': 'E.B Magalona',
+    'location': 'E.B MAGALONA',
     'crops': [
-      {'crop': 'Sugarcane', 'month': 'No specific month'}
+      {'name': 'Sugarcane, Rice, Corn', 'duration': 'October to May'},
+      {'name': 'Rice, Sugarcane, Corn', 'duration': 'March to October'},
+      {'name': 'Corn, Rice, Sugarcane', 'duration': 'April to May'}
     ]
   },
   {
-    'area': 'Escalante',
+    'location': 'ESCALANTE',
     'crops': [
-      {'crop': 'Sugar Cane', 'month': 'October to May'}
+      {'name': 'Sugar Cane, Coconut, Rice', 'duration': 'October to May'},
+      {'name': 'Rice, Coconut, Sugarcane', 'duration': 'April to May'},
+      {'name': 'Rice, Coconut, Sugarcane', 'duration': 'April to May'}
     ]
   },
-  {
-    'area': 'Himamaylan',
-    'crops': [
-      {'crop': 'Sugarcane', 'month': 'October to May'},
-      {'crop': 'Rice', 'month': 'March to October'}
-    ]
-  },
-  {
-    'area': 'Hinigaran',
-    'crops': [
-      {'crop': 'Rice', 'month': 'March to October'},
-      {'crop': 'Sugar Cane', 'month': 'October to May'}
-    ]
-  }
 ];
