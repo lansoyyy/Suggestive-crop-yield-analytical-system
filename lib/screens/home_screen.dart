@@ -163,8 +163,6 @@ class HomeScreenState extends State<HomeScreen> {
         print('Wind Speed: $windSpeed');
 
         // Suggest crops based on weather conditions
-        suggestCrops(
-            weatherDescription, temperatureCelsius, pressure, humidity);
 
         // Show success snackbar
         showSnackbar('Request successful');
@@ -221,21 +219,5 @@ class HomeScreenState extends State<HomeScreen> {
     // ScaffoldMessenger.
     //
     //of(context).showSnackBar(SnackBar(content: Text(message)));
-  }
-
-  void suggestCrops(String weatherDescription, double temperature, int pressure,
-      int humidity) {
-    // Add your crop suggestion logic here based on the weather conditions
-    // You can check the weather description, temperature, pressure, humidity, etc.
-    // and suggest appropriate crops
-
-    // Example crop suggestions based on weather conditions
-    if (temperature > 25 && weatherDescription.contains('rain')) {
-      print('Suggested Crop: Rice');
-    } else if (temperature > 30 && pressure > 1015) {
-      print('Suggested Crop: Corn');
-    } else {
-      print('No specific crop suggestion for current weather conditions.');
-    }
   }
 }

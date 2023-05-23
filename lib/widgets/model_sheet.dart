@@ -29,6 +29,8 @@ class _WeatherBottomSheetState extends State<WeatherBottomSheet> {
   String location = '';
   @override
   Widget build(BuildContext context) {
+    print(date);
+    print(date2);
     return Container(
       padding: const EdgeInsets.all(16.0),
       child: SingleChildScrollView(
@@ -164,12 +166,15 @@ class _WeatherBottomSheetState extends State<WeatherBottomSheet> {
               ),
             ),
             const SizedBox(height: 20.0),
-            const Text(
-              'Crop Suggestions:',
-              style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'QBold'),
+            Visibility(
+              visible: completed,
+              child: const Text(
+                'Crop Suggestions: ${'Corn, Watermelon, Eggplant, Okra, Cucumber, Bitter gourd (Ampalaya), Sweet potato (Camote), Tomato, Bell pepper, Chili pepper'}',
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'QBold'),
+              ),
             ),
             const SizedBox(height: 8.0),
           ],

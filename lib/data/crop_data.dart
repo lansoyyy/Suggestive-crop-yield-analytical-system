@@ -1,6 +1,6 @@
 List<Map<String, dynamic>> dataList = [
   {
-    'location': 'BAGO',
+    'location': 'BAGO CITY, PHILIPPINES',
     'crops': [
       {'name': 'RICE', 'duration': 'March to October'},
       {'name': 'SUGARCANE, RICE', 'duration': 'October to May'},
@@ -19,7 +19,7 @@ List<Map<String, dynamic>> dataList = [
     ]
   },
   {
-    'location': 'BINALBAGAN',
+    'location': 'BINALBAGAN CITY, PHILIPPINES',
     'crops': [
       {'name': 'Sugar Cane, Rice, Corn', 'duration': 'October to May'},
       {'name': 'Corn, Sugarcane', 'duration': 'April to May'},
@@ -27,7 +27,7 @@ List<Map<String, dynamic>> dataList = [
     ]
   },
   {
-    'location': 'CADIZ',
+    'location': 'CADIZ CITY, PHILIPPINES',
     'crops': [
       {'name': 'Sugar Cane, Corn, Rice', 'duration': 'October to May'},
       {'name': 'Rice, Corn', 'duration': 'March to October'},
@@ -35,7 +35,7 @@ List<Map<String, dynamic>> dataList = [
     ]
   },
   {
-    'location': 'CALATRAVA',
+    'location': 'CALATRAVA CITY, PHILIPPINES',
     'crops': [
       {'name': 'Sugarcane Plantation Rice, Corn', 'duration': 'October to May'},
       {'name': 'Rice Farming, Corn, Sugarcane', 'duration': 'March to October'},
@@ -43,7 +43,7 @@ List<Map<String, dynamic>> dataList = [
     ]
   },
   {
-    'location': 'CANDONI',
+    'location': 'CANDONI CITY, PHILIPPINES',
     'crops': [
       {
         'name': 'Pineapple, Rice, Sugarcane',
@@ -54,7 +54,7 @@ List<Map<String, dynamic>> dataList = [
     ]
   },
   {
-    'location': 'CAUYAN',
+    'location': 'CAUYAN CITY, PHILIPPINES',
     'crops': [
       {'name': 'Rice, Corn, Coconut', 'duration': 'March to October'},
       {'name': 'Corn, Rice, Coconut', 'duration': 'April to May'},
@@ -62,7 +62,7 @@ List<Map<String, dynamic>> dataList = [
     ]
   },
   {
-    'location': 'E.B MAGALONA',
+    'location': 'E.B MAGALONA CITY, PHILIPPINES',
     'crops': [
       {'name': 'Sugarcane, Rice, Corn', 'duration': 'October to May'},
       {'name': 'Rice, Sugarcane, Corn', 'duration': 'March to October'},
@@ -70,7 +70,7 @@ List<Map<String, dynamic>> dataList = [
     ]
   },
   {
-    'location': 'ESCALANTE',
+    'location': 'ESCALANTE CITY, PHILIPPINES',
     'crops': [
       {'name': 'Sugar Cane, Coconut, Rice', 'duration': 'October to May'},
       {'name': 'Rice, Coconut, Sugarcane', 'duration': 'April to May'},
