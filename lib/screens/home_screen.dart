@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:math';
 import 'package:google_api_headers/google_api_headers.dart';
 import 'package:crop_analytical_system/screens/auth/login_page.dart';
 import 'package:crop_analytical_system/utils/colors.dart';
@@ -34,6 +35,33 @@ class HomeScreenState extends State<HomeScreen> {
   String location = '';
 
   GoogleMapController? mapController;
+
+  final randomGenerator = Random();
+  final List<String> crops = [
+    'Watermelon',
+    'Rice',
+    'Coconut',
+    'Mango',
+    'Stringbean',
+    'Sugarcane'
+  ];
+  final List<int> percentages = [40, 20, 20, 20, 25, 25];
+
+  String getRandomCrop() {
+    int totalPercentage = percentages.reduce((a, b) => a + b);
+    int randomIndex = randomGenerator.nextInt(totalPercentage);
+
+    int cumulativePercentage = 0;
+    for (int i = 0; i < crops.length; i++) {
+      cumulativePercentage += percentages[i];
+      if (randomIndex < cumulativePercentage) {
+        return crops[i];
+      }
+    }
+
+    // Fallback option if something goes wrong
+    return 'Unknown';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -101,41 +129,97 @@ class HomeScreenState extends State<HomeScreen> {
           _controller.complete(controller);
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: primary,
-        child: const Icon(Icons.search),
-        onPressed: () async {
-          location1.Prediction? p = await PlacesAutocomplete.show(
-              mode: Mode.overlay,
-              context: context,
-              apiKey: 'AIzaSyDdXaMN5htLGHo8BkCfefPpuTauwHGXItU',
-              language: 'en',
-              strictbounds: false,
-              types: [""],
-              decoration: InputDecoration(
-                  hintText: 'Search Pick-up Location',
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      borderSide: const BorderSide(color: Colors.white))),
-              components: [
-                location1.Component(location1.Component.country, "ph")
-              ]);
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            backgroundColor: primary,
+            onPressed: () {
+              String randomCrop = getRandomCrop();
 
-          location1.GoogleMapsPlaces places = location1.GoogleMapsPlaces(
-              apiKey: 'AIzaSyDdXaMN5htLGHo8BkCfefPpuTauwHGXItU',
-              apiHeaders: await const GoogleApiHeaders().getHeaders());
+              if (randomCrop == 'Watermelon') {
+                print('Watermelon\nDetails:');
+                print(
+                    'Watermelon is a delicious and refreshing fruit with high water content.');
+                print(
+                    'Guide: Watermelons are typically grown in warm climates. They require well-drained soil and plenty of sunlight to thrive.');
+              } else if (randomCrop == 'Rice') {
+                print('Rice\nDetails:');
+                print(
+                    'Rice is a staple food for many cultures and provides a significant source of carbohydrates.');
+                print(
+                    'Guide: Rice is commonly cultivated in flooded fields. It requires ample water and warm temperatures to grow successfully.');
+              } else if (randomCrop == 'Coconut') {
+                print('Coconut\nDetails:');
+                print(
+                    'Coconut is a versatile fruit with various uses, including food, oil, and fiber.');
+                print(
+                    'Guide: Coconuts grow well in tropical regions. They need a warm climate, well-drained soil, and regular watering.');
+              } else if (randomCrop == 'Mango') {
+                print('Mango\nDetails:');
+                print(
+                    'Mango is a tropical fruit known for its sweet and juicy flavor.');
+                print(
+                    'Guide: Mango trees thrive in warm climates. They require well-drained soil, regular watering, and full sun exposure.');
+              } else if (randomCrop == 'Stringbean') {
+                print('Stringbean\nDetails:');
+                print(
+                    'Stringbeans, also known as green beans or snap beans, are a nutritious vegetable.');
+                print(
+                    'Guide: Stringbeans grow well in moderate temperatures. They require fertile soil, regular watering, and support for climbing.');
+              } else if (randomCrop == 'Sugarcane') {
+                print('Sugarcane\nDetails:');
+                print(
+                    'Sugarcane is a tall perennial grass known for its high sugar content.');
+                print(
+                    'Guide: Sugarcane grows in tropical and subtropical regions. It needs well-drained soil, ample water, and warm temperatures to thrive.');
+              } else {
+                print(
+                    'Crop details and guide are not available for the selected crop.');
+              }
+            },
+            child: const Icon(Icons.list),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          FloatingActionButton(
+            backgroundColor: primary,
+            child: const Icon(Icons.search),
+            onPressed: () async {
+              location1.Prediction? p = await PlacesAutocomplete.show(
+                  mode: Mode.overlay,
+                  context: context,
+                  apiKey: 'AIzaSyDdXaMN5htLGHo8BkCfefPpuTauwHGXItU',
+                  language: 'en',
+                  strictbounds: false,
+                  types: [""],
+                  decoration: InputDecoration(
+                      hintText: 'Search Pick-up Location',
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: const BorderSide(color: Colors.white))),
+                  components: [
+                    location1.Component(location1.Component.country, "ph")
+                  ]);
 
-          location1.PlacesDetailsResponse detail =
-              await places.getDetailsByPlaceId(p!.placeId!);
+              location1.GoogleMapsPlaces places = location1.GoogleMapsPlaces(
+                  apiKey: 'AIzaSyDdXaMN5htLGHo8BkCfefPpuTauwHGXItU',
+                  apiHeaders: await const GoogleApiHeaders().getHeaders());
 
-          mapController!.animateCamera(CameraUpdate.newLatLngZoom(
-              LatLng(detail.result.geometry!.location.lat,
-                  detail.result.geometry!.location.lng),
-              18.0));
+              location1.PlacesDetailsResponse detail =
+                  await places.getDetailsByPlaceId(p!.placeId!);
 
-          getApiData(detail.result.geometry!.location.lat,
-              detail.result.geometry!.location.lng);
-        },
+              mapController!.animateCamera(CameraUpdate.newLatLngZoom(
+                  LatLng(detail.result.geometry!.location.lat,
+                      detail.result.geometry!.location.lng),
+                  18.0));
+
+              getApiData(detail.result.geometry!.location.lat,
+                  detail.result.geometry!.location.lng);
+            },
+          ),
+        ],
       ),
     );
   }
