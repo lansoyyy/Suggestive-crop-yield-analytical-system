@@ -138,44 +138,282 @@ class HomeScreenState extends State<HomeScreen> {
               String randomCrop = getRandomCrop();
 
               if (randomCrop == 'Watermelon') {
-                print('Watermelon\nDetails:');
-                print(
-                    'Watermelon is a delicious and refreshing fruit with high water content.');
-                print(
-                    'Guide: Watermelons are typically grown in warm climates. They require well-drained soil and plenty of sunlight to thrive.');
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: TextBold(
+                          text: randomCrop,
+                          fontSize: 18,
+                          color: Colors.black,
+                        ),
+                        content: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            TextRegular(
+                              text:
+                                  'Watermelon is a delicious and refreshing fruit with high water content.',
+                              fontSize: 12,
+                              color: Colors.grey,
+                            ),
+                            TextRegular(
+                              text:
+                                  'Guide: Watermelons are typically grown in warm climates. They require well-drained soil and plenty of sunlight to thrive.',
+                              fontSize: 12,
+                              color: Colors.grey,
+                            ),
+                          ],
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: TextRegular(
+                              text: 'Close',
+                              fontSize: 14,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      );
+                    });
               } else if (randomCrop == 'Rice') {
-                print('Rice\nDetails:');
-                print(
-                    'Rice is a staple food for many cultures and provides a significant source of carbohydrates.');
-                print(
-                    'Guide: Rice is commonly cultivated in flooded fields. It requires ample water and warm temperatures to grow successfully.');
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: TextBold(
+                          text: randomCrop,
+                          fontSize: 18,
+                          color: Colors.black,
+                        ),
+                        content: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            TextRegular(
+                              text:
+                                  'Rice is a staple food for many cultures and provides a significant source of carbohydrates.',
+                              fontSize: 12,
+                              color: Colors.grey,
+                            ),
+                            TextRegular(
+                              text:
+                                  'Guide: Rice is commonly cultivated in flooded fields. It requires ample water and warm temperatures to grow successfully.',
+                              fontSize: 12,
+                              color: Colors.grey,
+                            ),
+                          ],
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: TextRegular(
+                              text: 'Close',
+                              fontSize: 14,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      );
+                    });
               } else if (randomCrop == 'Coconut') {
-                print('Coconut\nDetails:');
-                print(
-                    'Coconut is a versatile fruit with various uses, including food, oil, and fiber.');
-                print(
-                    'Guide: Coconuts grow well in tropical regions. They need a warm climate, well-drained soil, and regular watering.');
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: TextBold(
+                          text: randomCrop,
+                          fontSize: 18,
+                          color: Colors.black,
+                        ),
+                        content: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            TextRegular(
+                              text:
+                                  'Coconut is a versatile fruit with various uses, including food, oil, and fiber.',
+                              fontSize: 12,
+                              color: Colors.grey,
+                            ),
+                            TextRegular(
+                              text:
+                                  'Guide: Coconuts grow well in tropical regions. They need a warm climate, well-drained soil, and regular watering.',
+                              fontSize: 12,
+                              color: Colors.grey,
+                            ),
+                          ],
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: TextRegular(
+                              text: 'Close',
+                              fontSize: 14,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      );
+                    });
               } else if (randomCrop == 'Mango') {
-                print('Mango\nDetails:');
-                print(
-                    'Mango is a tropical fruit known for its sweet and juicy flavor.');
-                print(
-                    'Guide: Mango trees thrive in warm climates. They require well-drained soil, regular watering, and full sun exposure.');
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: TextBold(
+                          text: randomCrop,
+                          fontSize: 18,
+                          color: Colors.black,
+                        ),
+                        content: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            TextRegular(
+                              text:
+                                  'Mango is a tropical fruit known for its sweet and juicy flavor.',
+                              fontSize: 12,
+                              color: Colors.grey,
+                            ),
+                            TextRegular(
+                              text:
+                                  'Guide: Mango trees thrive in warm climates. They require well-drained soil, regular watering, and full sun exposure.',
+                              fontSize: 12,
+                              color: Colors.grey,
+                            ),
+                          ],
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: TextRegular(
+                              text: 'Close',
+                              fontSize: 14,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      );
+                    });
               } else if (randomCrop == 'Stringbean') {
-                print('Stringbean\nDetails:');
-                print(
-                    'Stringbeans, also known as green beans or snap beans, are a nutritious vegetable.');
-                print(
-                    'Guide: Stringbeans grow well in moderate temperatures. They require fertile soil, regular watering, and support for climbing.');
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: TextBold(
+                          text: randomCrop,
+                          fontSize: 18,
+                          color: Colors.black,
+                        ),
+                        content: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            TextRegular(
+                              text:
+                                  'Stringbeans, also known as green beans or snap beans, are a nutritious vegetable.',
+                              fontSize: 12,
+                              color: Colors.grey,
+                            ),
+                            TextRegular(
+                              text:
+                                  'Guide: Stringbeans grow well in moderate temperatures. They require fertile soil, regular watering, and support for climbing.',
+                              fontSize: 12,
+                              color: Colors.grey,
+                            ),
+                          ],
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: TextRegular(
+                              text: 'Close',
+                              fontSize: 14,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      );
+                    });
               } else if (randomCrop == 'Sugarcane') {
-                print('Sugarcane\nDetails:');
-                print(
-                    'Sugarcane is a tall perennial grass known for its high sugar content.');
-                print(
-                    'Guide: Sugarcane grows in tropical and subtropical regions. It needs well-drained soil, ample water, and warm temperatures to thrive.');
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: TextBold(
+                          text: randomCrop,
+                          fontSize: 18,
+                          color: Colors.black,
+                        ),
+                        content: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            TextRegular(
+                              text:
+                                  'Sugarcane is a tall perennial grass known for its high sugar content.',
+                              fontSize: 12,
+                              color: Colors.grey,
+                            ),
+                            TextRegular(
+                              text:
+                                  'Guide: Sugarcane grows in tropical and subtropical regions. It needs well-drained soil, ample water, and warm temperatures to thrive.',
+                              fontSize: 12,
+                              color: Colors.grey,
+                            ),
+                          ],
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: TextRegular(
+                              text: 'Close',
+                              fontSize: 14,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      );
+                    });
               } else {
-                print(
-                    'Crop details and guide are not available for the selected crop.');
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: TextBold(
+                          text:
+                              'Crop details and guide are not available for the selected crop.',
+                          fontSize: 18,
+                          color: Colors.black,
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: TextRegular(
+                              text: 'Close',
+                              fontSize: 14,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      );
+                    });
               }
             },
             child: const Icon(Icons.list),
