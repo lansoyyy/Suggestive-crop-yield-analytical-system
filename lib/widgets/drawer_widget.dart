@@ -1,10 +1,13 @@
 import 'package:crop_analytical_system/screens/auth/login_page.dart';
+import 'package:crop_analytical_system/screens/contactus_screen.dart';
 import 'package:crop_analytical_system/screens/home_screen.dart';
 import 'package:crop_analytical_system/utils/colors.dart';
 import 'package:crop_analytical_system/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get_storage/get_storage.dart';
+
+import '../screens/aboutus_screen.dart';
 
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({Key? key}) : super(key: key);
@@ -53,6 +56,44 @@ class _MyDrawerState extends State<DrawerWidget> {
               onTap: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => const HomeScreen()));
+              },
+            ),
+            ListTile(
+              title: TextBold(
+                text: 'Contact Us',
+                fontSize: 12,
+                color: Colors.black,
+              ),
+              onTap: () {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => const ContactusScreen()));
+              },
+            ),
+            ListTile(
+              title: TextBold(
+                text: 'About Us',
+                fontSize: 12,
+                color: Colors.black,
+              ),
+              onTap: () {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => const AboutusScreen()));
+              },
+            ),
+            ListTile(
+              title: TextBold(
+                text: 'About App',
+                fontSize: 12,
+                color: Colors.black,
+              ),
+              onTap: () {
+                showAboutDialog(
+                    context: context,
+                    applicationName: 'Crop Analytical System',
+                    applicationIcon: const Icon(
+                      Icons.crop,
+                    ),
+                    applicationVersion: 'v1.0.0');
               },
             ),
             ListTile(

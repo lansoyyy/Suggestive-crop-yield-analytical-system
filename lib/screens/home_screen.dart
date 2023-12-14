@@ -433,7 +433,7 @@ class HomeScreenState extends State<HomeScreen> {
                   strictbounds: false,
                   types: [""],
                   decoration: InputDecoration(
-                      hintText: 'Search Pick-up Location',
+                      hintText: 'Search Location',
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20),
                           borderSide: const BorderSide(color: Colors.white))),
